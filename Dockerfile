@@ -6,7 +6,6 @@ WORKDIR /usr/src/app
 COPY ./ ./
 
 # Build the app
-RUN git submodule update --init
 RUN npm ci
 RUN npm run build
 
