@@ -6,6 +6,8 @@ WORKDIR /usr/src/app
 COPY ./ ./
 
 # Build the app
+RUN apk --no-cache add git
+RUN git submodule update --init --recursive
 RUN npm ci
 RUN npm run build
 
