@@ -1,4 +1,4 @@
-FROM node-alpine:16
+FROM node:16.3.0-alpine
 
 ENV PM2_HOME="/home/node/app/.pm2"
 
