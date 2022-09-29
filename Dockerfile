@@ -12,6 +12,7 @@ RUN npm ci
 RUN npm run build
 
 # Make build footprint version for easier debugging.
+RUN apk add openssl
 RUN rm ./version.txt
 RUN openssl rand -hex 12 > version.txt
 
