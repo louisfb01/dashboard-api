@@ -5,6 +5,7 @@ function register(app: Application) {
     const allowedOrigins: Array<string> = [
         'http://localhost:3000',
         'https://localhost:3000',
+        'https://dashboard-app.sandbox.coda-platform.com'
     ];
 
     const corsOptions = {
