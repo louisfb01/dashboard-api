@@ -1,0 +1,3 @@
+[submodule "base-types"]
+	path = base-types
+	url = https://github.com/coda-platform/base-types
