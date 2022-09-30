@@ -1,4 +1,4 @@
-# Learning API
+# Dashboard API
 
 ### Overview
 
