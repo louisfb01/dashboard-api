@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import SummaryMeasures from "../../types/src/request/SummaryMeasures";
+import SummaryMeasures from "../../base-types/src/request/SummaryMeasures";
 import { getCachedFile } from "../helpers/poly";
 import JSON5 from 'json5';
 import { Sites } from "../services/Sites";

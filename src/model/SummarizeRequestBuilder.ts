@@ -4,7 +4,7 @@ import {
     SummarizeRequestOptions,
     SummarizeRequestSelector,
     SummaryOperator
-} from "../../types/src/request/SummarizeRequest";
+} from "../../base-types/src/request/SummarizeRequest";
 
 import { format, addDays } from 'date-fns';
 

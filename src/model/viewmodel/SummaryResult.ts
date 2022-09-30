@@ -1,5 +1,5 @@
-import { SummarizeRequestBody, SummarizeRequestField, SummarizeRequestSelector } from "../../../types/src/request/SummarizeRequest";
-import { I18nString } from "../../../types/src/base";
+import { SummarizeRequestBody, SummarizeRequestField, SummarizeRequestSelector } from "../../../base-types/src/request/SummarizeRequest";
+import { I18nString } from "../../../base-types/src/base";
 import { Sites } from "../../services/Sites";
 import { sortBy } from "underscore"
 

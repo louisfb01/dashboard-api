@@ -1,23 +1,23 @@
 import axios from '../helpers/axios';
 import passAuth from '../auth/auth';
 import { Request } from 'express';
-import { SiteInfoRequest } from "../../types/src/request/SiteInfoRequest";
+import { SiteInfoRequest } from "../../base-types/src/request/SiteInfoRequest";
 import { SRBuilder } from "../model/SummarizeRequestBuilder";
 import { addDays } from 'date-fns';
-import { I18nString } from "../../types/src/base";
+import { I18nString } from "../../base-types/src/base";
 import {
     SummarizeRequestBody, SummarizeRequestBreakdownSliceResult,
     SummarizeRequestResult,
     SummarizeRequestSiteAllResult, SummarizeRequestSiteResult
-} from "../../types/src/request/SummarizeRequest";
+} from "../../base-types/src/request/SummarizeRequest";
 import { PerSiteNumber } from "./DashPanels";
-import Terms from "../../types/src/term/term";
+import Terms from "../../base-types/src/term/term";
 import {
     PrepareRequestBody,
     PrepareRequestResult,
     PrepareRequestSiteAllResult,
     PrepareRequestSiteResult
-} from "../../types/src/request/PrepareRequest";
+} from "../../base-types/src/request/PrepareRequest";
 
 // FIXME(malavv): The names should come from each sites, not being faked here.
 function convertMock2Name(pkg: any) {

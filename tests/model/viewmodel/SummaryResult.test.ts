@@ -1,7 +1,7 @@
 import SummaryResult from "../../../src/model/viewmodel/SummaryResult";
 import fs from "fs";
 import JSON5 from 'json5';
-import { SummaryOperator } from "../../../types/src/request/SummarizeRequest";
+import { SummaryOperator } from "../../../base-types/src/request/SummarizeRequest";
 
 const received_1 = JSON5.parse(fs.readFileSync('./mock/tasks/received_task_1.json5').toString());
 const returned_1 = JSON5.parse(fs.readFileSync('./mock/tasks/ret_task_1.json5').toString());
