@@ -1,8 +1,8 @@
-import {Request, Response, Router} from 'express';
+import { Request, Response, Router } from 'express';
 import JSON5 from 'json5';
-import {DashPanels} from "../services/DashPanels";
-import {getCachedFile} from "../helpers/poly";
-import {isValidDate, isValidPanelId} from "../helpers/validators";
+import { DashPanels } from "../services/DashPanels";
+import { getCachedFile } from "../helpers/poly";
+import { isValidDate, isValidPanelId } from "../helpers/validators";
 
 const router = Router();
 
@@ -32,7 +32,7 @@ router.get('/:panel', async (req: Request, res: Response) => {
     }
 
     // NOTE(malavv): Prob. also want the site configuration to be passed in.
-    const allSites = ["112", "115"];
+    const allSites = ["111"];
 
     // This is instanced to later inject some dependencies.
     // NOTE(malavv): the date replace is because UTC encoded dates are being converted in the tunnel, stick to local one.
@@ -43,7 +43,7 @@ router.get('/:panel', async (req: Request, res: Response) => {
 });
 
 
-function getSingleQueryParam(req: Request, key: string) : string | undefined {
+function getSingleQueryParam(req: Request, key: string): string | undefined {
     // @ts-ignore
     let data = req.query[key];
     if (data === undefined)
