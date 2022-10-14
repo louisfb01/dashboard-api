@@ -1,0 +1,33 @@
+{
+    "appName": "dashboard-api",
+    "instanceCount": 1,
+    "notExposeAsWebApp": false,
+    "containerHttpPort": "$CODA_DASHBOARD_API_PORT",
+    "forceSsl": true,
+    "envVars": [
+        {
+            "key": "CODA_DASHBOARD_API_HUB_ENDPOINT",
+            "value": "$CODA_DASHBOARD_API_HUB_ENDPOINT"
+        },
+        {
+            "key": "CODA_DASHBOARD_API_KEYCLOAK_URL",
+            "value": "$CODA_DASHBOARD_API_KEYCLOAK_URL"
+        },
+        {
+            "key": "CODA_DASHBOARD_API_KEYCLOAK_REALM",
+            "value": "$CODA_DASHBOARD_API_KEYCLOAK_REALM"
+        },
+        {
+            "key": "CODA_DASHBOARD_API_KEYCLOAK_SESSION_MEMORY_SECRET",
+            "value": "$CODA_DASHBOARD_API_KEYCLOAK_SESSION_MEMORY_SECRET"
+        },
+        {
+            "key": "CODA_DASHBOARD_API_KEYCLOAK_CLIENT_SECRET",
+            "value": "$CODA_DASHBOARD_API_KEYCLOAK_CLIENT_SECRET"
+        },
+        {
+            "key": "CODA_DASHBOARD_APP_URL",
+            "value": "$CODA_DASHBOARD_APP_URL"
+        }
+    ]
+}
