@@ -7,7 +7,7 @@ COPY ./ ./
 
 # Build the app
 RUN apk --no-cache add git
-RUN rm -rf .git/modules
+RUN rm -rf .git
 RUN git submodule update --init --recursive
 RUN npm ci
 RUN npm run build
