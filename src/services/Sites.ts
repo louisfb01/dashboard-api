@@ -233,7 +233,7 @@ export class Sites {
                             "value": "94500-6"
                         },
                         {
-                            "path": "value.CodeableConcept.coding",
+                            "path": "value.CodeableConcept.coding.code",
                             "operator": "is",
                             "value": "260373001"
                         },
