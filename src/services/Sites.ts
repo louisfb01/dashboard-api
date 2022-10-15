@@ -279,8 +279,58 @@ export class Sites {
             .addMeasures({ categorical: ["count"] })
             .build();
 
+        const newSr = {
+            "selectors": [
+                {
+                    "resource": "Patient",
+                    "label": "PA",
+                    "filters": [{
+                        "path": "deceased.dateTime",
+                        "operator": "after",
+                        "value": "2020-01-01"
+                    }],
+                    "fields": [{
+                        "path": "deceased.dateTime",
+                        "label": "deceasedDateTime",
+                        "type": "dateTime"
+                    }]
+                },
+                {
+                    "resource": "Observation",
+                    "label": "OB",
+                    "filters": [
+                        {
+                            "path": "code.coding.code",
+                            "operator": "is",
+                            "value": "94500-6"
+                        },
+                        {
+                            "path": "value.CodeableConcept.coding.code",
+                            "operator": "is",
+                            "value": "260373001"
+                        }
+                    ],
+                    "fields": [
+                        {
+                            "path": "value.CodeableConcept.coding",
+                            "label": "test_result",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ],
+            "options": {
+                "measures": {
+                    "categorical": [
+                        "count",
+                        "mode"
+                    ]
+                }
+            }
+        } as unknown as SummarizeRequestBody
+
         // Get summary results.
-        return this.doSummaryQuery(sr, sitesCodes)
+        return this.doSummaryQuery(newSr, sitesCodes)
             .then(getSites2Total)
             .then(getAllTotal);
     }
