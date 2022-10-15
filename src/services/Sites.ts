@@ -199,7 +199,7 @@ export class Sites {
                     ]
                 }
             }
-        }
+        } as unknown as SummarizeRequestBody
 
         // Get summary results.
         return this.doSummaryQuery(newSr, sitesCodes)
