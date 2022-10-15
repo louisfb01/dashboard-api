@@ -169,8 +169,40 @@ export class Sites {
             .addSelector(patientWithTestBeforeDate)
             .addMeasures({ categorical: ["count"] })
             .build();
+
+        const newSr = {
+            "selectors": [
+                {
+                    "resource": "Observation",
+                    "label": "covid_test",
+                    "filters": [
+                        {
+                            "path": "code.coding.code",
+                            "operator": "is",
+                            "value": "94500-6"
+                        }
+                    ],
+                    "fields": [
+                        {
+                            "path": "value.CodeableConcept.coding",
+                            "label": "test_result",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ],
+            "options": {
+                "measures": {
+                    "categorical": [
+                        "count",
+                        "mode"
+                    ]
+                }
+            }
+        }
+
         // Get summary results.
-        return this.doSummaryQuery(sr, sitesCodes)
+        return this.doSummaryQuery(newSr, sitesCodes)
             .then(getSites2Total)
             .then(getAllTotal);
     }

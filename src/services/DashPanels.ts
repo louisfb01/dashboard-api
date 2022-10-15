@@ -1,13 +1,14 @@
-import {Application, Request} from 'express';
-import {format} from 'date-fns';
-import {Sites} from "./Sites";
-import {last, sortBy, zip} from 'underscore';
-import {getCachedFile, getRandomInt, isSetsEquals, ObjectFromEntries} from "../helpers/poly";
-import {resolveAfter} from "../helpers/promises";
+import { Application, Request } from 'express';
+import { format } from 'date-fns';
+import { Sites } from "./Sites";
+import { last, sortBy, zip } from 'underscore';
+import { getCachedFile, getRandomInt, isSetsEquals, ObjectFromEntries } from "../helpers/poly";
+import { resolveAfter } from "../helpers/promises";
 import JSON5 from 'json5';
 
 /** The request can be asked for real data "real", mocked data "mock", or mocked with added fake latency "lagmock" */
 type QueryModeType = "real" | "mock" | "lagmock";
+
 // Upper range for latency range in _lagmock_ in milliseconds.
 const maxJitterMs = 2000;
 
@@ -131,7 +132,7 @@ export class DashPanels {
             let sites: { [site: string]: { est: number[] } } = {};
             // NOTE(malavv) : Sites data are "implicitly" aligned with dates, but not directly mapped. Meaning there must be perfect alignment from the results. i.e. no results missing for any dates.
             totalSites.forEach(site => {
-                sites[site] = {est: zip(posBreakdown.sites[site], totalBreakdown.sites[site]).map(divideOrNan)}
+                sites[site] = { est: zip(posBreakdown.sites[site], totalBreakdown.sites[site]).map(divideOrNan) }
             })
 
             // FIXME(malavv): No LOESS yet, maybe client side?
@@ -152,7 +153,7 @@ export class DashPanels {
                 // Get the proportion.
                 let sites: { [site: string]: { est: number[] } } = {};
                 Object.keys(posBreakdown.sites).forEach((site: string) => {
-                    sites[site] = {est: posBreakdown.sites[site]}
+                    sites[site] = { est: posBreakdown.sites[site] }
                 })
 
                 return {
@@ -175,8 +176,8 @@ export class DashPanels {
             const formattedDates = icuBreakdown.dates.map((d: Date) => format(d, "yyyy-MM-dd"));
 
             let sites: { [site: string]: { est: number[] } } = {};
-            sites["WARD"] = {est: wardBreakdown.sites["all"]}
-            sites["ICU"] = {est: icuBreakdown.sites["all"]}
+            sites["WARD"] = { est: wardBreakdown.sites["all"] }
+            sites["ICU"] = { est: icuBreakdown.sites["all"] }
 
             return {
                 // Results are in the same exact order as the dates.
@@ -188,7 +189,7 @@ export class DashPanels {
 
     private async computePanel7(): Promise<any> {
         return this.sitesProxy.getActiveIcuOnDate(this.date, this.sitesCode)
-            .then(sites => ({"sites": ObjectFromEntries(sites)}));
+            .then(sites => ({ "sites": ObjectFromEntries(sites) }));
     }
 
     private async computePanel8(): Promise<any> {
