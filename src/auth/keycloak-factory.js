@@ -9,8 +9,8 @@ function get(app) {
 
   let memoryStore = new session.MemoryStore();
 
-  const sessionSecret = process.env.CODA_DASHBOARD_API_KEYCLOAK_SESSION_MEMORY_SECRET
-    ? process.env.CODA_DASHBOARD_API_KEYCLOAK_SESSION_MEMORY_SECRET
+  const sessionSecret = process.env.CODA_DASHBOARD_API_AUTH_SESSION_MEMORY_SECRET
+    ? process.env.CODA_DASHBOARD_API_AUTH_SESSION_MEMORY_SECRET
     : '';
 
   //session

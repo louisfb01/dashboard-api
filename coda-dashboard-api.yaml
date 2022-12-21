@@ -17,7 +17,7 @@ objects:
       application: ${CODA_HUB_DASH_BACK}
   type: Opaque
   stringData:
-    secret: ${CODA_DASHBOARD_API_KEYCLOAK_CLIENT_SECRET}
+    secret: ${CODA_DASHBOARD_API_AUTH_CLIENT_SECRET}
 - apiVersion: v1
   kind: Secret
   metadata:
@@ -26,7 +26,7 @@ objects:
       application: ${CODA_HUB_DASH_BACK}
   type: Opaque
   stringData:
-    secret: ${CODA_DASHBOARD_API_KEYCLOAK_SESSION_MEMORY_SECRET}
+    secret: ${CODA_DASHBOARD_API_AUTH_SESSION_MEMORY_SECRET}
 - apiVersion: v1
   kind: Service
   metadata:
@@ -89,18 +89,18 @@ objects:
       spec:
         containers:
           - env:
-            - name: CODA_DASHBOARD_API_HUB_ENDPOINT
-              value: '${CODA_DASHBOARD_API_HUB_ENDPOINT}'
-            - name: CODA_DASHBOARD_API_KEYCLOAK_URL
-              value: '${CODA_DASHBOARD_API_KEYCLOAK_URL}'
-            - name: CODA_DASHBOARD_API_KEYCLOAK_REALM
-              value: '${CODA_DASHBOARD_API_KEYCLOAK_REALM}'
-            - name: CODA_DASHBOARD_API_KEYCLOAK_CLIENT_SECRET
+            - name: CODA_HUB_API_URL
+              value: '${CODA_HUB_API_URL}'
+            - name: CODA_AUTH_SERVICE_URL
+              value: '${CODA_AUTH_SERVICE_URL}'
+            - name: CODA_DASHBOARD_API_AUTH_REALM
+              value: '${CODA_DASHBOARD_API_AUTH_REALM}'
+            - name: CODA_DASHBOARD_API_AUTH_CLIENT_SECRET
               valueFrom:
                     secretKeyRef:
                       key: secret
                       name: ${CODA_HUB_DASH_BACK}-kc-identifiers
-            - name: CODA_DASHBOARD_API_KEYCLOAK_SESSION_MEMORY_SECRET
+            - name: CODA_DASHBOARD_API_AUTH_SESSION_MEMORY_SECRET
               valueFrom:
                     secretKeyRef:
                       key: secret
@@ -127,23 +127,23 @@ parameters:
     Custom hostname for https service route. Leave blank for default hostname,
     e.g.: <application-name>-<namespace>.<default-domain-suffix>
   value: dashboard-api.hub.coda.com
-- name: CODA_DASHBOARD_API_HUB_ENDPOINT
-  displayName: HUB ENDPOINT
-  description: 'Hub Endpoint'
+- name: CODA_HUB_API_URL
+  displayName: HUB API URL
+  description: 'Hub API URL'
   required: true
-- name: CODA_DASHBOARD_API_KEYCLOAK_URL
-  displayName: KEYCLOAK URL
-  description: 'Keycloak Url'
+- name: CODA_AUTH_SERVICE_URL
+  displayName: AUTH SERVICE URL
+  description: 'Auth service URL'
   required: true
-- name: CODA_DASHBOARD_API_KEYCLOAK_REALM
-  displayName: KEYCLOAK REALM
-  description: 'Keycloak Realm'
+- name: CODA_DASHBOARD_API_AUTH_REALM
+  displayName: AUTH REALM
+  description: 'Auth realm'
   required: true
-- name: CODA_DASHBOARD_API_KEYCLOAK_CLIENT_SECRET
-  displayName: KEYCLOAK CLIENT SECRET
-  description: 'Keycloak client secret'
+- name: CODA_DASHBOARD_API_AUTH_CLIENT_SECRET
+  displayName: AUTH CLIENT SECRET
+  description: 'Auth client secret'
   required: true
-- name: CODA_DASHBOARD_API_KEYCLOAK_SESSION_MEMORY_SECRET
-  displayName: KEYCLOAK SESSION MEMORY SECRET
-  description: 'Keycloak session memory secret'
+- name: CODA_DASHBOARD_API_AUTH_SESSION_MEMORY_SECRET
+  displayName: AUTH SESSION MEMORY SECRET
+  description: 'Auth session memory secret'
   required: true
