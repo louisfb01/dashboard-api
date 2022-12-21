@@ -1,6 +1,6 @@
 {
   "name": "dashboard-api",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "private": true,
   "main": "server.js",
   "scripts": {
@@ -12,6 +12,8 @@
     "caprover:setup": "node ./caprover/setup.js",
     "caprover:deploy": "node ./caprover/deploy.js"
   },
+  "author": "Kevin Arsenault, Alexandre Hamel, Xuefei Shi, Jeffrey Li, Maxime Lavigne, Louis Mullie, Pascal St-Onge",
+  "license": "GPL v3",
   "dependencies": {
     "axios": "^0.21.0",
     "body-parser": "^1.19.0",
