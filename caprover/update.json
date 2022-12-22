@@ -26,6 +26,10 @@
             "value": "$CODA_DASHBOARD_API_AUTH_SESSION_MEMORY_SECRET"
         },
         {
+            "key": "CODA_DASHBOARD_API_AUTH_CLIENT_ID",
+            "value": "$CODA_DASHBOARD_API_AUTH_CLIENT_ID"
+        },
+        {
             "key": "CODA_DASHBOARD_API_AUTH_CLIENT_SECRET",
             "value": "$CODA_DASHBOARD_API_AUTH_CLIENT_SECRET"
         }
