@@ -3,11 +3,10 @@ import cors from 'cors';
 
 function register(app: Application,) {
     const allowedOrigins: Array<string> = [
-        '*',
-        //'http://localhost:3000',
-        //'https://localhost:3000',
-        //...(process.env.CODA_DASHBOARD_APP_URL ?
-        //[process.env.CODA_DASHBOARD_APP_URL] : [])
+        'http://localhost:3000',
+        'https://localhost:3000',
+        ...(process.env.CODA_DASHBOARD_APP_URL ?
+            [process.env.CODA_DASHBOARD_APP_URL] : [])
     ];
 
     const corsOptions = {
