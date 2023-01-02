@@ -47,25 +47,14 @@ function localizedNameFromCode(code: string): I18nString {
 // FIXME(malavv): The names should come from each sites, not being faked here.
 function code2name(code: string): string {
     switch (code) {
-        case '103':
-        case '102':
-            return 'VALERIA';
-        case '114':
-            return 'CIUSSS-NIM';
-        case '110':
-            return 'CHUM';
-        case '115':
-            return 'CHUQ-UL';
-        case '116':
-            return 'CISSS-CA';
-        case '112':
-            return 'JGH';
         case '111':
-            return 'MUHC';
-        case '119':
-            return 'CHUS';
-        case '117':
-            return 'CHUSJ';
+            return 'Site A';
+        case '112':
+            return 'Site B';
+        case '113':
+            return 'Site C';
+        case '114':
+            return 'Site D';
         case 'all':
             return 'all';
 
